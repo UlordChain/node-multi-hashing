@@ -1,0 +1,44 @@
+{
+  "name": "node-multi-hashing",
+  "version": "0.1.0",
+  "main": "multihashing",
+  "author": {
+    "name": "Jackchen"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/UlordChain/node-multi-hashing.git"
+  },
+  "dependencies": {
+    "bindings": "*",
+    "nan": "^2.0.0"
+  },
+  "keywords": [
+    "cryptonight",
+    "scrypt",
+    "scryptjane",
+    "script-n",
+    "x11",
+    "quark",
+    "keccak_hash",
+    "skein",
+    "bcrypt",
+    "keccak",
+    "blake",
+    "shavite",
+    "fugue",
+    "yescrypt",
+    "sha1",
+    "neoscrypt",
+    "decrypt"
+  ],
+    "scripts": {
+    "install": "node-gyp rebuild"
+  },
+  "gypfile": true,
+  "readmeFilename": "README.md",
+  "description": "node-multi-hashing",
+  "bugs": {
+    "url": "https://github.com/UlordChain/node-multi-hashing/issues"
+  }
+}

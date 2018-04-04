@@ -1,0 +1,1 @@
+cmd_Release/multihashing.node := ln -f "Release/obj.target/multihashing.node" "Release/multihashing.node" 2>/dev/null || (rm -rf "Release/multihashing.node" && cp -af "Release/obj.target/multihashing.node" "Release/multihashing.node")
