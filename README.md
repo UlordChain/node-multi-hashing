@@ -1,8 +1,6 @@
 node-multi-hashing
 ===============
 
-[![Build Status](https://github.com/UlordChain/node-multi-hashing.png?branch=master)](https://github.com/UlordChain/node-multi-hashing)
-
 [![NPM](https://nodei.co/npm/multi-hashing.png?downloads=true&stars=true)](https://nodei.co/npm/multi-hashing/)
 
 Cryptocurrency hashing functions for node.js.
