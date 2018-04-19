@@ -79,25 +79,32 @@ INCS_Release := \
 
 OBJS := \
 	$(obj).target/$(TARGET)/multihashing.o \
-	$(obj).target/$(TARGET)/aesb.o \
-	$(obj).target/$(TARGET)/chacha8.o \
-	$(obj).target/$(TARGET)/crypto-ops-data.o \
-	$(obj).target/$(TARGET)/hash.o \
-	$(obj).target/$(TARGET)/hash-extra-groestl.o \
-	$(obj).target/$(TARGET)/hash-extra-skein.o \
-	$(obj).target/$(TARGET)/keccak.o \
-	$(obj).target/$(TARGET)/random.o \
-	$(obj).target/$(TARGET)/slow-hash.o \
-	$(obj).target/$(TARGET)/blake256.o \
-	$(obj).target/$(TARGET)/crypto-ops.o \
-	$(obj).target/$(TARGET)/groestl.o \
-	$(obj).target/$(TARGET)/hash-extra-blake.o \
-	$(obj).target/$(TARGET)/hash-extra-jh.o \
-	$(obj).target/$(TARGET)/jh.o \
-	$(obj).target/$(TARGET)/oaes_lib.o \
-	$(obj).target/$(TARGET)/skein.o \
-	$(obj).target/$(TARGET)/tree-hash.o \
-	$(obj).target/$(TARGET)/cryptonight.o
+	$(obj).target/$(TARGET)/whirlpool.o \
+	$(obj).target/$(TARGET)/skein512_256.o \
+	$(obj).target/$(TARGET)/sha512.o \
+	$(obj).target/$(TARGET)/sha256.o \
+	$(obj).target/$(TARGET)/sha3_256.o \
+	$(obj).target/$(TARGET)/sha1.o \
+	$(obj).target/$(TARGET)/ripemd160.o \
+	$(obj).target/$(TARGET)/rc4.o \
+	$(obj).target/$(TARGET)/my_time.o \
+	$(obj).target/$(TARGET)/keccak1600.o \
+	$(obj).target/$(TARGET)/jtr_skein.o \
+	$(obj).target/$(TARGET)/jtr_haval.o \
+	$(obj).target/$(TARGET)/jtr_gost.o \
+	$(obj).target/$(TARGET)/jtr_crc32.o \
+	$(obj).target/$(TARGET)/hmac_md5.o \
+	$(obj).target/$(TARGET)/haval5_256.o \
+	$(obj).target/$(TARGET)/gost.o \
+	$(obj).target/$(TARGET)/des.o \
+	$(obj).target/$(TARGET)/crc32.o \
+	$(obj).target/$(TARGET)/common.o \
+	$(obj).target/$(TARGET)/camellia128.o \
+	$(obj).target/$(TARGET)/blake2s256.o \
+	$(obj).target/$(TARGET)/blake2s.o \
+	$(obj).target/$(TARGET)/aes128.o \
+	$(obj).target/$(TARGET)/oneWayFunction.o \
+	$(obj).target/$(TARGET)/PoW.o
 
 # Add to the list of files we specially track dependencies for.
 all_deps += $(OBJS)

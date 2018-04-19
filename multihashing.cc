@@ -5,7 +5,7 @@
 #include <nan.h>
 
 extern "C" {
-    #include "cryptonight.h"
+    #include "PoW.h"
 }
 
 
@@ -16,15 +16,12 @@ using namespace v8;
 
 
 NAN_METHOD(cryptonight) {
-    bool fast = false;
-
     if (info.Length() < 1)
         return THROW_ERROR_EXCEPTION("You must provide one argument.");
 
     if (info.Length() >= 2) {
         if(!info[1]->IsBoolean())
             return THROW_ERROR_EXCEPTION("Argument 2 should be a boolean");
-        fast = info[1]->ToBoolean()->BooleanValue();
     }
 
     Local<Object> target = info[0]->ToObject();
@@ -32,17 +29,16 @@ NAN_METHOD(cryptonight) {
     if(!Buffer::HasInstance(target))
         return THROW_ERROR_EXCEPTION("Argument should be a buffer object.");
 
-    char * input = Buffer::Data(target);
-    char output[32];
+    uint8_t * input = (uint8_t *)Buffer::Data(target);
+    uint8_t output[OUTPUT_LEN];
 
     uint32_t input_len = Buffer::Length(target);
     input_len=input_len;
-    if(fast)
-        cryptonight_fast_hash(input, output, input_len);
-    else
-        cryptonight_hash(input, output, input_len);
+    
+    helloHash(input, input_len, output);
 
-    v8::Local<v8::Value> returnValue = Nan::CopyBuffer(output, 32).ToLocalChecked();
+    v8::Local<v8::Value> returnValue = Nan::CopyBuffer((char *)output, OUTPUT_LEN).ToLocalChecked();
+	
     info.GetReturnValue().Set(returnValue);
 }
 
