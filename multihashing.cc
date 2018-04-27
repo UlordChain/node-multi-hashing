@@ -15,7 +15,7 @@ using namespace node;
 using namespace v8;
 
 
-NAN_METHOD(cryptonight) {
+NAN_METHOD(cryptohello) {
     if (info.Length() < 1)
         return THROW_ERROR_EXCEPTION("You must provide one argument.");
 
@@ -44,7 +44,7 @@ NAN_METHOD(cryptonight) {
 
 
 NAN_MODULE_INIT(init) {
-    Nan::Set(target, Nan::New("cryptonight").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(cryptonight)).ToLocalChecked());
+    Nan::Set(target, Nan::New("cryptohello").ToLocalChecked(), Nan::GetFunction(Nan::New<FunctionTemplate>(cryptohello)).ToLocalChecked());
 }
 
 NODE_MODULE(multihashing, init)
