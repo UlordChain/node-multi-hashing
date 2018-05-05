@@ -349,8 +349,13 @@ void powNistTest(const char *outFileName) {
 
 void helloHash(uint8_t *mess, uint32_t messLen, uint8_t output[OUTPUT_LEN]) {
 	initOneWayFunction();
-    uint32_t inputLen =messLen; 
-    uint8_t input[INPUT_LEN];
+    uint32_t inputLen =messLen;
+    if(inputLen != inputLen)
+    {
+	printf("Invaild message length %d\n", messLen);
+	return;
+    }
+    uint8_t input[c];
     memset(input, 0, INPUT_LEN*sizeof(uint8_t));
     memcpy(input, mess, inputLen*sizeof(char));      //operation: input
 
