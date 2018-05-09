@@ -4,7 +4,11 @@
 #include <stdint.h>
 #include <string.h>
 #include <stdlib.h>
+#ifdef SYS_OS_MAC
+#include <sys/malloc.h>
+#else
 #include <malloc.h>
+#endif
 
 /*
  * 功能：字节数组打印方法

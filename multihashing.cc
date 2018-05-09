@@ -33,7 +33,7 @@ NAN_METHOD(cryptohello) {
     uint8_t output[OUTPUT_LEN];
 
     uint32_t input_len = Buffer::Length(target);
-    input_len=input_len;
+    //input_len=input_len;
     
     helloHash(input, input_len, output);
 

@@ -46,6 +46,11 @@
             ],
             "cflags_cc": [
                 "-std=c++0x -maes -march=native"
+            ],
+            "conditions": [
+                ["OS==\"mac\"", {
+                    "defines": ["SYS_OS_MAC"]
+                }]
             ]
         }
     ]
