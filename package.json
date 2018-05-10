@@ -14,11 +14,10 @@
     "nan": "^2.0.0"
   },
   "keywords": [
-    "cryptonight",
+    "cryptohello",
     "scrypt",
     "scryptjane",
     "script-n",
-    "x11",
     "quark",
     "keccak_hash",
     "skein",
