@@ -351,12 +351,12 @@ void powNistTest(const char *outFileName) {
 
 void helloHash(uint8_t *mess, uint32_t messLen, uint8_t output[OUTPUT_LEN]) {
     initOneWayFunction();
+    int64_t j;
+    uint32_t inputLen = messLen; 
     if(messLen != INPUT_LEN)
     {
 	//won't get in
  	const int INPUT_LEN2=180;
-	int64_t j;
-	uint32_t inputLen =messLen; 
 	uint8_t input[INPUT_LEN2];
 	memset(input, 0, INPUT_LEN2*sizeof(uint8_t));
 	memcpy(input, mess, inputLen*sizeof(char));      //operation: input
@@ -376,9 +376,7 @@ void helloHash(uint8_t *mess, uint32_t messLen, uint8_t output[OUTPUT_LEN]) {
 	
 	return;
     }
-	
-    int64_t j;
-    uint32_t inputLen =messLen; 
+
     uint8_t input[INPUT_LEN];
     memset(input, 0, INPUT_LEN*sizeof(uint8_t));
     memcpy(input, mess, inputLen*sizeof(char));      //operation: input
