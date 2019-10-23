@@ -352,6 +352,7 @@ void powNistTest(const char *outFileName) {
 void helloHash(uint8_t *mess, uint32_t messLen, uint8_t output[OUTPUT_LEN]) {
     initOneWayFunction();
     uint32_t inputLen =messLen;
+    /*
     if(inputLen != INPUT_LEN)
     {
 	printf("helloHash:Invaild message length %d\n", messLen);
@@ -374,6 +375,25 @@ void helloHash(uint8_t *mess, uint32_t messLen, uint8_t output[OUTPUT_LEN]) {
         free(Maddr);
         Maddr = NULL;
     }
+    */
+    const int INPUT_LEN2=180;
+    int64_t j;
+    uint32_t inputLen = messLen; 
+    uint8_t input[INPUT_LEN2];
+    memset(input, 0, INPUT_LEN2*sizeof(uint8_t));
+    memcpy(input, mess, inputLen*sizeof(char));      //operation: input
+
+    uint8_t *Maddr = (uint8_t *)malloc(WORK_MEMORY_SIZE*sizeof(uint8_t));  //1024*1024*1
+    assert(NULL != Maddr);
+    memset(Maddr, 0, WORK_MEMORY_SIZE*sizeof(uint8_t));
+
+    //printf("Test message: %s\n", mess);
+    powFunction(input, inputLen,Maddr, output);
+    if (NULL != Maddr) {
+	    free(Maddr);
+	    Maddr = NULL;
+    }
+    
 }
 
 int my_rand64_r (struct my_rand48_data *buffer, uint64_t *result)
