@@ -354,7 +354,7 @@ void helloHash(uint8_t *mess, uint32_t messLen, uint8_t output[OUTPUT_LEN]) {
 
     int64_t j;
     uint32_t inputLen = messLen; 
-    printf("Test message length: %v\n", messLen);
+    //printf("Test message length: %lu\n", messLen);
     if(inputLen != INPUT_LEN)
     {
 	    //won't get in
@@ -367,9 +367,9 @@ void helloHash(uint8_t *mess, uint32_t messLen, uint8_t output[OUTPUT_LEN]) {
 	    assert(NULL != Maddr);
 	    memset(Maddr, 0, WORK_MEMORY_SIZE*sizeof(uint8_t));
 
-	    printf("Test message: %s\n", mess);
+	    //printf("Test message: %s\n", mess);
 	    powFunction(input, inputLen,Maddr, output);
-	    view_data_u8("PoW", output, OUTPUT_LEN);        //output
+	    //view_data_u8("PoW", output, OUTPUT_LEN);        //output
 	    
 	    if (NULL != Maddr) {
 		    free(Maddr);
@@ -387,9 +387,9 @@ void helloHash(uint8_t *mess, uint32_t messLen, uint8_t output[OUTPUT_LEN]) {
     assert(NULL != Maddr);
     memset(Maddr, 0, WORK_MEMORY_SIZE*sizeof(uint8_t));
 
-    printf("Test message: %s\n", mess);
+    //printf("Test message: %s\n", mess);
     powFunction(input, inputLen,Maddr, output);
-    view_data_u8("PoW", output, OUTPUT_LEN);        //output
+    //view_data_u8("PoW", output, OUTPUT_LEN);        //output
     
     if (NULL != Maddr) {
         free(Maddr);
