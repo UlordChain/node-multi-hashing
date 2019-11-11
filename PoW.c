@@ -10,6 +10,7 @@
 #endif
 
 #include "my_time.h"
+#include "sha256.h"
 #include "common.h"
 #include "my_rand48_r.h"
 #include "oneWayFunction.h"
