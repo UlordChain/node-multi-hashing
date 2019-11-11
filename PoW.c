@@ -10,6 +10,7 @@
 #endif
 
 #include "my_time.h"
+#include "sha256.h"
 #include "common.h"
 #include "my_rand48_r.h"
 #include "oneWayFunction.h"
@@ -350,38 +351,25 @@ void powNistTest(const char *outFileName) {
 }
 
 void helloHash(uint8_t *mess, uint32_t messLen, uint8_t output[OUTPUT_LEN]) {
-    initOneWayFunction();
-
-    int64_t j;
-    uint32_t inputLen = messLen; 
     //printf("Test message length: %lu\n", messLen);
-    if(inputLen != INPUT_LEN)
-    {
-	    //won't get in
- 	    const int INPUT_LEN2=180;
-	    uint8_t input[INPUT_LEN2];
-	    memset(input, 0, INPUT_LEN2*sizeof(uint8_t));
-	    memcpy(input, mess, inputLen*sizeof(char));      //operation: input
-
-	    uint8_t *Maddr = (uint8_t *)malloc(WORK_MEMORY_SIZE*sizeof(uint8_t));  //1024*1024*1
-	    assert(NULL != Maddr);
-	    memset(Maddr, 0, WORK_MEMORY_SIZE*sizeof(uint8_t));
-
-	    //printf("Test message: %s\n", mess);
-	    powFunction(input, inputLen,Maddr, output);
-	    //view_data_u8("PoW", output, OUTPUT_LEN);        //output
-	    
-	    if (NULL != Maddr) {
-		    free(Maddr);
-		    Maddr = NULL;
-	    }
-	
-	    return;
+    const int INPUT_LEN2 = 180;
+    uint32_t inputLen = messLen;
+    if(inputLen != INPUT_LEN && inputLen != INPUT_LEN2){
+    	//won't get in
+	return;
     }
 
-    uint8_t input[INPUT_LEN];
-    memset(input, 0, INPUT_LEN*sizeof(uint8_t));
+    uint8_t input[inputLen];
+    memset(input, 0, inputLen*sizeof(uint8_t));
     memcpy(input, mess, inputLen*sizeof(char));      //operation: input
+    if(inputLen == INPUT_LEN2)
+    {  
+	sha256(input, inputLen, output);
+	//view_data_u8("PoW", output, OUTPUT_LEN);        //output
+	return;
+    }
+
+    initOneWayFunction();
 
     uint8_t *Maddr = (uint8_t *)malloc(WORK_MEMORY_SIZE*sizeof(uint8_t));  //1024*1024*1
     assert(NULL != Maddr);
