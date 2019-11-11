@@ -18,8 +18,8 @@ int main(int argc, const char *argv[]) {
 	const char *mess = argv[1];
 	uint32_t messLen = (uint32_t)strlen(mess);
 
-	uint8_t input[INPUT_LEN];
-	memset(input, 0, INPUT_LEN*sizeof(uint8_t));
+	uint8_t input[messLen];
+	memset(input, 0, messLen*sizeof(uint8_t));
 	memcpy(input, mess, messLen*sizeof(char));
 	
 	// Test for oneWayFunction
@@ -30,7 +30,7 @@ int main(int argc, const char *argv[]) {
 	
 	// powNistTest("./powNistTest");
 	
-	uint8_t Maddr[WORK_MEMORY_SIZE], output[OUTPUT_LEN];
+	uint8_t Maddr[WORK_MEMORY_SIZE], output[messLen];
 	memset(Maddr, 0, WORK_MEMORY_SIZE*sizeof(uint8_t));
 
 	helloHash(input, messLen, output);
