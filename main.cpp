@@ -30,7 +30,7 @@ int main(int argc, const char *argv[]) {
 	
 	// powNistTest("./powNistTest");
 	
-	uint8_t Maddr[WORK_MEMORY_SIZE], output[messLen];
+	uint8_t Maddr[WORK_MEMORY_SIZE], output[OUTPUT_LEN];
 	memset(Maddr, 0, WORK_MEMORY_SIZE*sizeof(uint8_t));
 
 	helloHash(input, messLen, output);
